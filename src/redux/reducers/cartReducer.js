@@ -49,7 +49,7 @@ const cartReducer = (state = initialState, action) => {
           ...state[id],
           qty: state[id].qty - 1,
         },
-        cart: [...state.cart.splice(1,1)],
+        cart: state.cart.splice(state.cart - 1, 1),
       };
       return newUpdatedState;
 
