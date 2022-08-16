@@ -2,15 +2,15 @@ import { DECREMENT, INCREMENT } from "../constants/cartConstants";
 
 const initialState = {
   asus: {
-    qty: 20,
+    qty: 0,
     price: 35500,
   },
   dell: {
-    qty: 35,
+    qty: 0,
     price: 9300,
   },
   canon: {
-    qty: 72,
+    qty: 0,
     price: 36500,
   },
   cart: [],
@@ -28,28 +28,18 @@ const cartReducer = (state = initialState, action) => {
           ...state[id],
           qty: state[id].qty + 1,
         },
-        cart: [...state.cart, id],
+        //cart: [...state.cart, id],
       };
       return newState;
     case DECREMENT:
       var id = payload.id || "";
-      const removeItem = (arr, item) => {
-        const newArr = [...arr];
-        const index = newArr.findIndex((element) => element === item);
-        if (index !== -1) {
-          newArr.splice(index, 1);
-          return newArr;
-        } else {
-          return newArr;
-        }
-      };
       const newUpdatedState = {
         ...state,
         [id]: {
           ...state[id],
           qty: state[id].qty - 1,
         },
-        cart: state.cart.splice(state.cart - 1, 1),
+        //cart: state.cart.splice(state.cart - 1, 1),
       };
       return newUpdatedState;
 

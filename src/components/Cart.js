@@ -5,10 +5,11 @@ import { decrement, increment } from "../redux/actions/cartActions";
 const Cart = () => {
   const dispatch = useDispatch();
   const state = useSelector((state) => state);
-  const { qty:aqty } = state.asus;
-  const { qty:dqty } = state.dell;
-  const { qty:cqty } = state.canon;
+  const { qty: aqty } = state.asus;
+  const { qty: dqty } = state.dell;
+  const { qty: cqty } = state.canon;
   console.log(state, state.cart);
+  const total = aqty + dqty + cqty;
   const incre = (id) => {
     dispatch(increment(id));
   };
@@ -123,7 +124,11 @@ const Cart = () => {
               </div>
               <div className="text-lg py-2">
                 <div className="flex flex-row space-x-2 w-full items-center rounded-lg">
-                  <button className="focus:outline-none bg-purple-700 hover:bg-purple-800 text-white font-bold py-1 px-1 rounded-full inline-flex items-center">
+                  {/* ----------------button---------------- */}
+                  <button
+                    onClick={() => decre({ id: "asus" })}
+                    className="focus:outline-none bg-purple-700 hover:bg-purple-800 text-white font-bold py-1 px-1 rounded-full inline-flex items-center"
+                  >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       className="h-4 w-4"
@@ -139,8 +144,12 @@ const Cart = () => {
                       />
                     </svg>
                   </button>
-                  <p>0</p>
-                  <button className="focus:outline-none bg-purple-700 hover:bg-purple-800 text-white font-bold py-1 px-1 rounded-full inline-flex items-center">
+                  <p>{aqty}</p>
+                  {/* ----------------button---------------- */}
+                  <button
+                    onClick={() => incre({ id: "asus" })}
+                    className="focus:outline-none bg-purple-700 hover:bg-purple-800 text-white font-bold py-1 px-1 rounded-full inline-flex items-center"
+                  >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       className="h-4 w-4"
@@ -166,7 +175,11 @@ const Cart = () => {
               </div>
               <div className="text-lg py-2">
                 <div className="flex flex-row space-x-2 w-full items-center rounded-lg">
-                  <button className="focus:outline-none bg-purple-700 hover:bg-purple-800 text-white font-bold py-1 px-1 rounded-full inline-flex items-center">
+                  {/* ----------------button---------------- */}
+                  <button
+                    onClick={() => decre({ id: "dell" })}
+                    className="focus:outline-none bg-purple-700 hover:bg-purple-800 text-white font-bold py-1 px-1 rounded-full inline-flex items-center"
+                  >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       className="h-4 w-4"
@@ -182,8 +195,12 @@ const Cart = () => {
                       />
                     </svg>
                   </button>
-                  <p>0</p>
-                  <button className="focus:outline-none bg-purple-700 hover:bg-purple-800 text-white font-bold py-1 px-1 rounded-full inline-flex items-center">
+                  <p>{dqty}</p>
+                  {/* ----------------button---------------- */}
+                  <button
+                    onClick={() => incre({ id: "dell" })}
+                    className="focus:outline-none bg-purple-700 hover:bg-purple-800 text-white font-bold py-1 px-1 rounded-full inline-flex items-center"
+                  >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       className="h-4 w-4"
@@ -209,7 +226,11 @@ const Cart = () => {
               </div>
               <div className="text-lg py-2">
                 <div className="flex flex-row space-x-2 w-full items-center rounded-lg">
-                  <button className="focus:outline-none bg-purple-700 hover:bg-purple-800 text-white font-bold py-1 px-1 rounded-full inline-flex items-center">
+                  {/* ----------------button---------------- */}
+                  <button
+                    onClick={() => decre({ id: "canon" })}
+                    className="focus:outline-none bg-purple-700 hover:bg-purple-800 text-white font-bold py-1 px-1 rounded-full inline-flex items-center"
+                  >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       className="h-4 w-4"
@@ -225,8 +246,12 @@ const Cart = () => {
                       />
                     </svg>
                   </button>
-                  <p>0</p>
-                  <button onClick={()=>decre({id:'canon'})} className="focus:outline-none bg-purple-700 hover:bg-purple-800 text-white font-bold py-1 px-1 rounded-full inline-flex items-center">
+                  <p>{cqty}</p>
+                  {/* ----------------button---------------- */}
+                  <button
+                    onClick={() => incre({ id: "canon" })}
+                    className="focus:outline-none bg-purple-700 hover:bg-purple-800 text-white font-bold py-1 px-1 rounded-full inline-flex items-center"
+                  >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       className="h-4 w-4"
@@ -250,7 +275,7 @@ const Cart = () => {
               <div className="text-xl font-semibold">
                 <p>Total Item</p>
                 {/* -----------------total items----------------- */}
-                <p className="text-5xl">0</p>
+                <p className="text-5xl">{total}</p>
               </div>
             </div>
           </div>
