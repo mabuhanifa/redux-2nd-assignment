@@ -1,2 +1,2 @@
-export const INCREMENT = "cart/increment";
-export const DECREMENT = "cart/decrement";
+export const INCREMENT = "state/increment";
+export const DECREMENT = "state/decrement";

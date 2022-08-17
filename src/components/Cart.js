@@ -8,7 +8,7 @@ const Cart = () => {
   const { qty: asusQty, price: asusPrice } = state.asus;
   const { qty: dellQty, price: dellPrice } = state.dell;
   const { qty: canonQty, price: canonPrice } = state.canon;
-  console.log(state, state.cart);
+  //console.log(state, state.cart);
   const total = asusQty + dellQty + canonQty;
   const totalPrice =
     asusQty * asusPrice + dellQty * dellPrice + canonQty * canonPrice;
@@ -30,7 +30,7 @@ const Cart = () => {
           <div className="bg-white py-4 px-4 shadow-md rounded-lg my-4 mx-4">
             <div className="flex justify-between px-4 items-center">
               <div className="text-lg font-semibold">
-                <p>Asus Vivobook X515MA (20)</p>
+                <p>Asus Vivobook X515MA ({20 - asusQty})</p>
                 <p className="text-gray-400 text-base">Tk 35,500</p>
               </div>
               <div className="text-lg font-semibold">
@@ -60,7 +60,7 @@ const Cart = () => {
           <div className="bg-white py-4 px-4 shadow-md rounded-lg my-4 mx-4">
             <div className="flex justify-between px-4 items-center">
               <div className="text-lg font-semibold">
-                <p>Dell E1916HV 18.5 Inch (35)</p>
+                <p>Dell E1916HV 18.5 Inch ({35 - dellQty})</p>
                 <p className="text-gray-400 text-base">Tk 9,300</p>
               </div>
               <div className="text-lg font-semibold">
@@ -90,7 +90,7 @@ const Cart = () => {
           <div className="bg-white py-4 px-4 shadow-md rounded-lg my-4 mx-4">
             <div className="flex justify-between px-4 items-center">
               <div className="text-lg font-semibold">
-                <p>Canon Eos 4000D 18MP (72)</p>
+                <p>Canon Eos 4000D 18MP ({72 - canonQty})</p>
                 <p className="text-gray-400 text-base">Tk 36,500</p>
               </div>
               <div className="text-lg font-semibold">
