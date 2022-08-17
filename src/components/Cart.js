@@ -5,11 +5,13 @@ import { decrement, increment } from "../redux/actions/cartActions";
 const Cart = () => {
   const dispatch = useDispatch();
   const state = useSelector((state) => state);
-  const { qty: aqty } = state.asus;
-  const { qty: dqty } = state.dell;
-  const { qty: cqty } = state.canon;
+  const { qty: asusQty, price: asusPrice } = state.asus;
+  const { qty: dellQty, price: dellPrice } = state.dell;
+  const { qty: canonQty, price: canonPrice } = state.canon;
   console.log(state, state.cart);
-  const total = aqty + dqty + cqty;
+  const total = asusQty + dellQty + canonQty;
+  const totalPrice =
+    asusQty * asusPrice + dellQty * dellPrice + canonQty * canonPrice;
   const incre = (id) => {
     dispatch(increment(id));
   };
@@ -118,7 +120,11 @@ const Cart = () => {
         </div>
         <div className="col-span-12 sm:col-span-12 md:col-span-5 lg:col-span-4 xxl:col-span-4">
           <div className="bg-white py-4 px-4 shadow-md rounded-lg my-4 mx-4">
-            <div className="flex justify-between border-b-2 mb-2">
+            <div
+              className={
+                asusQty ? "flex justify-between border-b-2 mb-2" : "hidden"
+              }
+            >
               <div className="text-lg py-2">
                 <p>Asus Vivobook X515MA</p>
               </div>
@@ -144,7 +150,7 @@ const Cart = () => {
                       />
                     </svg>
                   </button>
-                  <p>{aqty}</p>
+                  <p>{asusQty}</p>
                   {/* ----------------button---------------- */}
                   <button
                     onClick={() => incre({ id: "asus" })}
@@ -169,7 +175,11 @@ const Cart = () => {
               </div>
             </div>
 
-            <div className="flex justify-between border-b-2 mb-2">
+            <div
+              className={
+                dellQty ? "flex justify-between border-b-2 mb-2" : "hidden"
+              }
+            >
               <div className="text-lg py-2">
                 <p>Dell E1916HV 18.5 Inch</p>
               </div>
@@ -195,7 +205,7 @@ const Cart = () => {
                       />
                     </svg>
                   </button>
-                  <p>{dqty}</p>
+                  <p>{dellQty}</p>
                   {/* ----------------button---------------- */}
                   <button
                     onClick={() => incre({ id: "dell" })}
@@ -220,7 +230,11 @@ const Cart = () => {
               </div>
             </div>
 
-            <div className="flex justify-between border-b-2 mb-2">
+            <div
+              className={
+                canonQty ? "flex justify-between border-b-2 mb-2" : "hidden"
+              }
+            >
               <div className="text-lg py-2">
                 <p>Canon Eos 4000D 18MP</p>
               </div>
@@ -246,7 +260,7 @@ const Cart = () => {
                       />
                     </svg>
                   </button>
-                  <p>{cqty}</p>
+                  <p>{canonQty}</p>
                   {/* ----------------button---------------- */}
                   <button
                     onClick={() => incre({ id: "canon" })}
@@ -284,9 +298,7 @@ const Cart = () => {
               <div className="text-xl font-semibold">
                 <p>Total Price</p>
                 {/* -----------------price----------------- */}
-                <p className="text-5xl">{aqty}</p>
-                <p className="text-5xl">{dqty}</p>
-                <p className="text-5xl">{cqty}</p>
+                <p className="text-5xl">{totalPrice}</p>
               </div>
             </div>
           </div>
