@@ -13,7 +13,6 @@ const initialState = {
     qty: 0,
     price: 36500,
   },
-  cart: [],
 };
 
 const cartReducer = (state = initialState, action) => {
@@ -28,7 +27,7 @@ const cartReducer = (state = initialState, action) => {
           ...state[id],
           qty: state[id].qty + 1,
         },
-        //cart: [...state.cart, id],
+      
       };
       return newState;
     case DECREMENT:
@@ -39,7 +38,7 @@ const cartReducer = (state = initialState, action) => {
           ...state[id],
           qty: state[id].qty - 1,
         },
-        //cart: state.cart.splice(state.cart - 1, 1),
+        
       };
       return newUpdatedState;
 
