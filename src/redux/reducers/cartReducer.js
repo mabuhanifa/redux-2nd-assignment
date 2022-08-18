@@ -20,7 +20,7 @@ const cartReducer = (state = initialState, action) => {
   console.log(type);
   switch (type) {
     case INCREMENT:
-      //var id = payload.id || "";
+     
       const newState = {
         ...state,
         [payload.id]: {
@@ -30,7 +30,7 @@ const cartReducer = (state = initialState, action) => {
       };
       return newState;
     case DECREMENT:
-      //var id = payload.id || "";
+     
       const newUpdatedState = {
         ...state,
         [payload.id]: {
@@ -40,16 +40,6 @@ const cartReducer = (state = initialState, action) => {
       };
       return newUpdatedState;
 
-    case "error":
-      //var id = payload.id || "";
-      const errorState = {
-        ...state,
-        [payload.id]: {
-          ...state[payload.id],
-          qty: state[payload.id].qty + payload.value,
-        },
-      };
-      return errorState;
     default:
       return state;
   }
