@@ -11,10 +11,10 @@ const Cart = () => {
   const total = asusQty + dellQty + canonQty;
   const totalPrice =
     asusQty * asusPrice + dellQty * dellPrice + canonQty * canonPrice;
-  const incre = (id) => {
+  const increase = (id) => {
     dispatch(increment(id));
   };
-  const decre = (id) => {
+  const decrease = (id) => {
     dispatch(decrement(id));
   };
   return (
@@ -46,7 +46,7 @@ const Cart = () => {
               <div className="text-lg font-semibold">
                 {/* ----------------button---------------- */}
                 <button
-                  onClick={() => incre({ id: "asus" })}
+                  onClick={() => increase({ id: "asus" })}
                   className="focus:outline-none bg-purple-700 hover:bg-purple-800 text-white font-bold py-2 px-2 rounded-full inline-flex items-center"
                   disabled={asusQty >= 20}
                 >
@@ -88,7 +88,7 @@ const Cart = () => {
               <div className="text-lg font-semibold">
                 {/* ----------------button---------------- */}
                 <button
-                  onClick={() => incre({ id: "dell" })}
+                  onClick={() => increase({ id: "dell" })}
                   className="focus:outline-none bg-purple-700 hover:bg-purple-800 text-white font-bold py-2 px-2 rounded-full inline-flex items-center"
                   disabled={dellQty >= 35}
                 >
@@ -130,7 +130,7 @@ const Cart = () => {
               <div className="text-lg font-semibold">
                 {/* ----------------button---------------- */}
                 <button
-                  onClick={() => incre({ id: "canon" })}
+                  onClick={() => increase({ id: "canon" })}
                   className="focus:outline-none bg-purple-700 hover:bg-purple-800 text-white font-bold py-2 px-2 rounded-full inline-flex items-center"
                   disabled={canonQty >= 72}
                 >
@@ -167,7 +167,7 @@ const Cart = () => {
                 <div className="flex flex-row space-x-2 w-full items-center rounded-lg">
                   {/* ----------------button---------------- */}
                   <button
-                    onClick={() => decre({ id: "asus" })}
+                    onClick={() => decrease({ id: "asus" })}
                     className="focus:outline-none bg-purple-700 hover:bg-purple-800 text-white font-bold py-1 px-1 rounded-full inline-flex items-center"
                   >
                     <svg
@@ -188,7 +188,7 @@ const Cart = () => {
                   <p>{asusQty}</p>
                   {/* ----------------button---------------- */}
                   <button
-                    onClick={() => incre({ id: "asus" })}
+                    onClick={() => increase({ id: "asus" })}
                     className="focus:outline-none bg-purple-700 hover:bg-purple-800 text-white font-bold py-1 px-1 rounded-full inline-flex items-center"
                     disabled={asusQty >= 20}
                   >
@@ -223,7 +223,7 @@ const Cart = () => {
                 <div className="flex flex-row space-x-2 w-full items-center rounded-lg">
                   {/* ----------------button---------------- */}
                   <button
-                    onClick={() => decre({ id: "dell" })}
+                    onClick={() => decrease({ id: "dell" })}
                     className="focus:outline-none bg-purple-700 hover:bg-purple-800 text-white font-bold py-1 px-1 rounded-full inline-flex items-center"
                   >
                     <svg
@@ -244,7 +244,7 @@ const Cart = () => {
                   <p>{dellQty}</p>
                   {/* ----------------button---------------- */}
                   <button
-                    onClick={() => incre({ id: "dell" })}
+                    onClick={() => increase({ id: "dell" })}
                     className="focus:outline-none bg-purple-700 hover:bg-purple-800 text-white font-bold py-1 px-1 rounded-full inline-flex items-center"
                     disabled={dellQty >= 35}
                   >
@@ -279,7 +279,7 @@ const Cart = () => {
                 <div className="flex flex-row space-x-2 w-full items-center rounded-lg">
                   {/* ----------------button---------------- */}
                   <button
-                    onClick={() => decre({ id: "canon" })}
+                    onClick={() => decrease({ id: "canon" })}
                     className="focus:outline-none bg-purple-700 hover:bg-purple-800 text-white font-bold py-1 px-1 rounded-full inline-flex items-center"
                   >
                     <svg
@@ -300,7 +300,7 @@ const Cart = () => {
                   <p>{canonQty}</p>
                   {/* ----------------button---------------- */}
                   <button
-                    onClick={() => incre({ id: "canon" })}
+                    onClick={() => increase({ id: "canon" })}
                     className="focus:outline-none bg-purple-700 hover:bg-purple-800 text-white font-bold py-1 px-1 rounded-full inline-flex items-center"
                     disabled={canonQty >= 72}
                   >
