@@ -13,16 +13,16 @@ const logger = (store) => (next) => (action) => {
   // if ((asusQty < 20) & ( dellQty < 35) & ( canonQty < 72)) {
   //   return next(action);
   // }
-  if (asusQty >= 20) {
-    alert("Can not order more than available quantity");
-    return next({
-      type: "error",
-      payload: {
-        value: 0,
-        id: "asus",
-      },
-    });
-  }
+  // if (asusQty >= 20) {
+  //   alert("Can not order more than available quantity");
+  //   return next({
+  //     type: "error",
+  //     payload: {
+  //       value: 0,
+  //       id: "asus",
+  //     },
+  //   });
+  // }
 console.log(action);
   next(action);
 };

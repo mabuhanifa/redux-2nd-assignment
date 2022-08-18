@@ -38,6 +38,7 @@ const Cart = () => {
                 <button
                   onClick={() => incre({ id: "asus" })}
                   className="focus:outline-none bg-purple-700 hover:bg-purple-800 text-white font-bold py-2 px-2 rounded-full inline-flex items-center"
+                  disabled={asusQty>=20}
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
